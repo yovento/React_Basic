@@ -5,8 +5,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      Weather App (aplicacion del clima)
-      <WeatherLocation />
+      <WeatherLocation></WeatherLocation>
     </div>
   );
 }

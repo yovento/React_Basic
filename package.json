@@ -1,0 +1,19 @@
+{
+  "name": "react_basic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yovento/React_Basic.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yovento/React_Basic/issues"
+  },
+  "homepage": "https://github.com/yovento/React_Basic#readme"
+}

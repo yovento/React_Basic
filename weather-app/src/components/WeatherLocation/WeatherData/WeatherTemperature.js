@@ -1,38 +1,20 @@
 import React from 'react';
-import WeatherIcons from 'react-icons-weather';
 import PropTypes from 'prop-types';
-import {
-    CLOUD,
-    CLOUDY,
-    SUN,
-    RAIN,
-    SNOW,
-    WINDY,
-} from './../../../constants/weathers';
+import { url_base_icon } from './../../../constants/api_url';
 import './styles.css';
-const icons = {
-    [CLOUD]: "301",
-    [CLOUDY]: "500",
-    [SUN]: "600",
-    [RAIN]: "701",
-    [SNOW]: "801",
-    [WINDY]: "901"
-};
 
-const getWeatherIcon = weatherState => {
-    const icon = icons[weatherState];
-    const sizeIcon = "4x";
+const getWeatherIcon = icon => {
     
     if (icon)
-        return <WeatherIcons className="wicon" name="owm" iconId={icon} flip="horizontal" rotate="90" size={sizeIcon}></WeatherIcons>
+        return <img alt="few clouds" src={url_base_icon(icon)} width="50" height="50"/>
     else        
-        return <WeatherIcons className="wicon" name="owm" iconId="301" flip="horizontal" rotate="90" size={sizeIcon}></WeatherIcons>
+        return <img alt="few clouds" src={url_base_icon("10d")} width="50" height="50"/>
 };
 
-const WeatherTemperature = ( { temperature, weatherState} ) => (
+const WeatherTemperature = ( { temperature, icon} ) => (
     <div className="weatherTemperatureCont">
         {
-            getWeatherIcon(weatherState)
+            getWeatherIcon(icon)
         }
         
         <span className="temperature">{`${temperature}`}</span>
@@ -42,7 +24,7 @@ const WeatherTemperature = ( { temperature, weatherState} ) => (
 
 WeatherTemperature.propTypes = {
     temperature: PropTypes.number.isRequired,
-    weatherState: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
 };
 
 export default WeatherTemperature;

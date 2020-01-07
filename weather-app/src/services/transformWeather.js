@@ -1,34 +1,22 @@
 import convert from 'convert-units';
-import {
-    CLOUD,
-    CLOUDY,
-    SUN,
-    RAIN,
-    SNOW,
-    WINDY,
-} from './../constants/weathers';
 
 const getTemp = kelvin => {
     return Number.parseFloat(convert(kelvin).from("K").to("C").toFixed(2));
 }
 
-const getWeatherState = weather_data => {
-    return SUN;
-}
-
 const transformWeather = weather_data => {
     const { humidity, temp } = weather_data.main;
     const { speed } = weather_data.wind;
-    const weatherState = getWeatherState(weather_data);
+    const { icon } = weather_data.weather[0];
     const temperature = getTemp(temp);
 
     const data = {
         humidity,
         temperature,
-        weatherState,
+        icon,
         wind: `${speed} m/s`
     }
-
+    console.log(data);
     return data;
 }
 
